@@ -15,7 +15,7 @@ node {
 
       echo "Build Docker Image App"
 
-      sh "docker build -t mymaven -f maven-dockerfile"
+      sh "docker build -t mymaven -f mavendockerfile"
       // withEnv(["MVN_HOME=$mvnHome", "JAVA_HOME=$jdkhome"]) {
 
       //    sh "'${mvnHome}/bin/mvn' -B archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=com.mycompany.app -DartifactId=training-webapp"
