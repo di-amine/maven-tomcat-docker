@@ -6,7 +6,7 @@ node {
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
-      mvnHome = tool 'Maven3'
-      jdkhome = tool 'jdk11'
+      mvnHome = tool 'Maven'
+      jdkhome = tool 'java'
    }
 }
