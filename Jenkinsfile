@@ -13,14 +13,18 @@ node {
    stage('Build') {
       // Run the maven build
 
-      echo "Build Docker Image App"
+      echo "Build Image Maven"
 
       sh "docker build -t mymaven -f maven-dockerfile ."
-      // withEnv(["MVN_HOME=$mvnHome", "JAVA_HOME=$jdkhome"]) {
+   }
 
-      //    sh "'${mvnHome}/bin/mvn' -B archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=com.mycompany.app -DartifactId=training-webapp"
+   stage('Build') {
 
-      // }
+      echo "Build Docker Image App"
+      sh "docker run -it -v $HOME/.m2:/root/.m2 -w /app/training-webapp/ --name test-maven  mymaven:v1.0 mvn clean install"
+
 
    }
+
+
 }
