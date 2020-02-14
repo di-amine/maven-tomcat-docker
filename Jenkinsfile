@@ -14,7 +14,7 @@ node {
       // Run the maven build
       withEnv(["MVN_HOME=$mvnHome", "JAVA_HOME=$jdkhome"]) {
 
-         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean build"
+         sh "'${mvnHome}/bin/mvn' -B archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=com.mycompany.app -DartifactId=training-webapp"
 
       }
 
