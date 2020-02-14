@@ -21,7 +21,7 @@ node {
    stage('Build') {
 
       echo "Build Docker Image App"
-      sh "docker run -it -v $HOME/.m2:/root/.m2 -w /app/training-webapp/ --name test-maven  mymaven:v1.0 mvn clean install"
+      sh "docker run -i -v $HOME/.m2:/root/.m2 -w /app/training-webapp/ --name test-maven  mymaven:v1.0 mvn clean install"
 
 
    }
