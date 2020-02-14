@@ -1,4 +1,8 @@
 FROM tomcat:8.0-alpine
+<<<<<<< HEAD
 ADD training-webapp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
+=======
+ADD /var/lib/jenkins/.m2/repository/com/mycompany/app/training-webapp/1.0-SNAPSHOT/training-webapp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
+>>>>>>> 497027e89f2307cd1295648d4e20f9427f974fe6
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
