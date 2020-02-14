@@ -24,6 +24,14 @@ node {
       sh "docker run -i -v $HOME/.m2:/root/.m2 -w /app/training-webapp/ --name test-maven  mymaven:v1.0 mvn clean install"
    }
 
+   stage('Copy Jar') {
+      // Run the maven build
+
+      echo "Copy Jar"
+
+      sh "cp /var/lib/jenkins/.m2/repository/com/mycompany/app/training-webapp/1.0-SNAPSHOT/training-webapp-1.0-SNAPSHOT.war ."
+   }
+
    stage('Build image tomcat') {
 
       echo "Tomcat Container Configuration"
