@@ -12,11 +12,15 @@ node {
 
    stage('Build') {
       // Run the maven build
-      withEnv(["MVN_HOME=$mvnHome", "JAVA_HOME=$jdkhome"]) {
 
-         sh "'${mvnHome}/bin/mvn' -B archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=com.mycompany.app -DartifactId=training-webapp"
+      echo "Build Docker Image App"
 
-      }
+      sh docker build -t="mymaven:v1.0"
+      // withEnv(["MVN_HOME=$mvnHome", "JAVA_HOME=$jdkhome"]) {
+
+      //    sh "'${mvnHome}/bin/mvn' -B archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=com.mycompany.app -DartifactId=training-webapp"
+
+      // }
 
    }
 }
