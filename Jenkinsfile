@@ -9,3 +9,4 @@ node {
       mvnHome = tool 'Maven3'
       jdkhome = tool 'jdk11'
    }
+}
