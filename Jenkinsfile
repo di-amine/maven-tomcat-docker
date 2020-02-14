@@ -27,7 +27,7 @@ node {
    stage('Build image tomcat') {
 
       echo "Tomcat Container Configuration"
-      sh "docker build -t mytomcat:v1.0 -f tomcat-dockerfile ."   
+      sh "docker build -t mytomcat:v1.0 -f tomcat-docker ."   
       
    }
 
