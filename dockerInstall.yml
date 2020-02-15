@@ -9,6 +9,11 @@
         name: "*"
         state: latest
 
+    - name: Ensure Java is installed.
+      package:
+        name: java-11-openjdk
+        state: present
+
     - name: restart system to reboot to newest kernel
       shell: "sleep 5 && reboot"
       async: 1
