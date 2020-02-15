@@ -30,18 +30,18 @@ node {
 
       }
 
-      stage('Build image') {
-         // Run the maven build
+      // stage('Build image') {
+      //    // Run the maven build
 
-         echo "Build Image Maven"
+      //    echo "Build Image Maven"
 
-         sh "docker build -t mymaven -f maven-dockerfile ."
-      }
+      //    sh "docker build -t mymaven -f maven-dockerfile ."
+      // }
 
       stage('Build app') {
 
          echo "Build Docker Image App"
-         sh "docker run -i -v $HOME/jenkins/.m2:/root/.m2 -w /app/training-webapp/ --name test-maven  maven:3.3-jdk-8 mvn clean install"
+         sh "docker run -i -v $HOME/jenkins/.m2:/root/.m2 -w /jenkins/app/training-webapp/ --name test-maven  maven:3.3-jdk-8 mvn clean install"
       }
 
       stage('Copy Jar') {
