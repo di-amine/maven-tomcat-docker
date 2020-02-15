@@ -14,6 +14,12 @@
         name: java-11-openjdk
         state: present
 
+
+    - name: Creates directory
+      file:
+        path: /home/vagrant/jenkins/
+        state: directory
+
     - name: restart system to reboot to newest kernel
       shell: "sleep 5 && reboot"
       async: 1
