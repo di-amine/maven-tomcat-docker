@@ -49,7 +49,7 @@ node {
 
          echo "Copy Jar"
 
-         sh "cp /var/lib/jenkins/.m2/repository/com/mycompany/app/training-webapp/1.0-SNAPSHOT/training-webapp-1.0-SNAPSHOT.war ."
+         sh "cp /var/lib/$USER/.m2/repository/com/mycompany/app/training-webapp/1.0-SNAPSHOT/training-webapp-1.0-SNAPSHOT.war ."
       }
 
       stage('Build image tomcat') {
