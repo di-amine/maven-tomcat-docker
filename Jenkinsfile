@@ -14,6 +14,7 @@ node {
       // if base box isn't here, install it
       echo 'Building vagrant VM...'
       sh "sudo vagrant up"
+      sh "sudo chmod 777 /var/lib/jenkins/workspace/pipeline"
    }
 
    stage ('Provisionnig VM Vagrant Box to install Docker') {
