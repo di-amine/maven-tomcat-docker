@@ -13,7 +13,7 @@ node {
    stage ('Build Vagrant Box') {
       // if base box isn't here, install it
       echo 'Building vagrant VM...'
-      vagrant up
+      sh "vagrant up"
    }
 
    stage('Build image') {
