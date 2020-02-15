@@ -1,26 +1,26 @@
 node {
-   //def mvnHome
-   // stage('Preparation') { // for display purposes
-   //    // Get some code from a GitHub repository
-   //    git 'https://github.com/di-amine/maven-tomcat-docker.git'
-   //    // // Get the Maven tool.
-   //    // // ** NOTE: This 'M3' Maven tool must be configured
-   //    // // **       in the global configuration.           
-   //    // mvnHome = tool 'maven'
-   //    // jdkhome = tool 'java'
-   // }
+   def mvnHome
+   stage('Preparation') { // for display purposes
+      // Get some code from a GitHub repository
+      git 'https://github.com/di-amine/maven-tomcat-docker.git'
+      // // Get the Maven tool.
+      // // ** NOTE: This 'M3' Maven tool must be configured
+      // // **       in the global configuration.           
+      // mvnHome = tool 'maven'
+      // jdkhome = tool 'java'
+   }
 
-   // stage ('Build Vagrant Box') {
-   //    // if base box isn't here, install it
-   //    echo 'Building vagrant VM...'
-   //    sh "sudo vagrant up"
-   // }
+   stage ('Build Vagrant Box') {
+      // if base box isn't here, install it
+      echo 'Building vagrant VM...'
+      sh "sudo vagrant up"
+   }
 
-   // stage ('Provisionnig VM Vagrant Box to install Docker') {
-   //    // if base box isn't here, install it
-   //    echo 'Install Docker to VM MAchine.'
-   //    sh "sudo ansible-playbook -i hosts.ini dockerInstall.yml"
-   // }
+   stage ('Provisionnig VM Vagrant Box to install Docker') {
+      // if base box isn't here, install it
+      echo 'Install Docker to VM MAchine.'
+      sh "sudo ansible-playbook -i hosts.ini dockerInstall.yml"
+   }
 
    node ('app') {
 
