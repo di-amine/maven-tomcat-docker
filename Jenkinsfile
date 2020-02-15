@@ -10,6 +10,12 @@ node {
       // jdkhome = tool 'java'
    }
 
+   stage ('Build Vagrant Box') {
+      // if base box isn't here, install it
+      echo 'Building vagrant VM...'
+      vagrant up
+   }
+
    stage('Build image') {
       // Run the maven build
 
