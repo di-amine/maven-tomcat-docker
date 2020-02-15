@@ -23,7 +23,13 @@ node {
    }
 
    node ('app') {
-      
+
+      stage('Preparation') { 
+         
+      git 'https://github.com/di-amine/maven-tomcat-docker.git'
+
+      }
+
       stage('Build image') {
          // Run the maven build
 
