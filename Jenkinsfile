@@ -30,13 +30,13 @@ node {
 
       }
 
-      // stage('Build image') {
-      //    // Run the maven build
+      stage('Build image') {
+         // Run the maven build
 
-      //    echo "Build Image Maven"
+         echo "Build Image Maven"
 
-      //    sh "docker build -t mymaven -f maven-dockerfile ."
-      // }
+         sh "docker build -t mymaven -f maven-dockerfile ."
+      }
 
       stage('Build app') {
 
