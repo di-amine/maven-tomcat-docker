@@ -22,39 +22,45 @@ node {
       sh "sudo ansible-playbook -i hosts.ini dockerInstall.yml"
    }
 
-   stage('Build image') {
-      // Run the maven build
-
-      echo "Build Image Maven"
-
-      sh "docker build -t mymaven -f maven-dockerfile ."
-   }
-
-   stage('Build app') {
-
-      echo "Build Docker Image App"
-      sh "docker run -i -v $HOME/.m2:/root/.m2 -w /app/training-webapp/ --name test-maven  mymaven:v1.0 mvn clean install"
-   }
-
-   stage('Copy Jar') {
-      // Run the maven build
-
-      echo "Copy Jar"
-
-      sh "cp /var/lib/jenkins/.m2/repository/com/mycompany/app/training-webapp/1.0-SNAPSHOT/training-webapp-1.0-SNAPSHOT.war ."
-   }
-
-   stage('Build image tomcat') {
-
-      echo "Tomcat Container Configuration"
-      sh "docker build -t mytomcat:v1.0 -f tomcat-docker ."   
+   node ('app') {
       
+      stage('Build image') {
+         // Run the maven build
+
+         echo "Build Image Maven"
+
+         sh "docker build -t mymaven -f maven-dockerfile ."
+      }
+
+      stage('Build app') {
+
+         echo "Build Docker Image App"
+         sh "docker run -i -v $HOME/.m2:/root/.m2 -w /app/training-webapp/ --name test-maven  mymaven:v1.0 mvn clean install"
+      }
+
+      stage('Copy Jar') {
+         // Run the maven build
+
+         echo "Copy Jar"
+
+         sh "cp /var/lib/jenkins/.m2/repository/com/mycompany/app/training-webapp/1.0-SNAPSHOT/training-webapp-1.0-SNAPSHOT.war ."
+      }
+
+      stage('Build image tomcat') {
+
+         echo "Tomcat Container Configuration"
+         sh "docker build -t mytomcat:v1.0 -f tomcat-docker ."   
+         
+      }
+
+      stage('Run Java Web application') {
+
+         echo "Run Java Web application"
+         sh "docker run -d -p 8888:8080 --name maven-webapp mytomcat:v1.0"
+      }
+
+
    }
 
-   stage('Run Java Web application') {
-
-      echo "Run Java Web application"
-      sh "docker run -d -p 8888:8080 --name maven-webapp mytomcat:v1.0"
-   }
 
 }
