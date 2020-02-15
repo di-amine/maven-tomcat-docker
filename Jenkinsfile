@@ -19,7 +19,7 @@ node {
    stage ('Provisionnig VM Vagrant Box to install Docker') {
       // if base box isn't here, install it
       echo 'Install Docker to VM MAchine.'
-      sh "ansible-playbook -i hosts.ini dockerInstall.yml"
+      sh "sudo ansible-playbook -i hosts.ini dockerInstall.yml"
    }
 
    stage('Build image') {
