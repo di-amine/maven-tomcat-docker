@@ -13,7 +13,7 @@ node {
    stage ('Build Vagrant Box') {
       // if base box isn't here, install it
       echo 'Building vagrant VM...'
-      sh "sudo vagrant up"
+      sh "vagrant up"
       sh "sudo chmod 777 /var/lib/jenkins/workspace/pipeline"
    }
 
