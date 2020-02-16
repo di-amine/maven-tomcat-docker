@@ -2,7 +2,7 @@ node {
    def mvnHome
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
-      git 'https://github.com/di-amine/maven-tomcat-docker.git'
+      git credentialsId: '6712898c-10b9-41df-b6ac-7193b452723c', url: 'https://github.com/di-amine/maven-tomcat-docker.git'
       // // Get the Maven tool.
       // // ** NOTE: This 'M3' Maven tool must be configured
       // // **       in the global configuration.           
