@@ -16,7 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # Configures synced folders on the machine, so that folders 
     # on your host machine can be synced to and from the guest machine
-    config.vm.synced_folder ".", "/vagrant", disabled: true
+    # config.vm.synced_folder ".", "/vagrant", disabled: true
+    config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=775"], disabled: true
     
     # VM Provider
     config.vm.provider :virtualbox do |v|
