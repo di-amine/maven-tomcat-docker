@@ -42,7 +42,7 @@ node {
       stage('Build app') {
 
          echo "Build Docker Image App"
-         sh "docker run -i -v $HOME/jenkins/.m2:/root/.m2 -w /jenkins/app/training-webapp/ --name test-maven  maven:3.3-jdk-8 mvn clean install"
+         sh "docker run -i -v /home/vagrant/jenkins/.m2:/root/.m2 -w /jenkins/app/training-webapp/ --name test-maven  maven:3.3-jdk-8 mvn clean install"
       }
 
       stage('Copy Jar') {
